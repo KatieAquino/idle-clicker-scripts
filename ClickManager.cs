@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ClickManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<float> autoClickersLastTime = new List<float>();
+    public int autoClickerPrice;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Loop until reach end of the list.
+        for(int i = 0; i < autoClickersLastTime; i ++)
+        {
+            // Check sto see if value is more than one second ago.
+            if(Time.time - autoClickersLastTime[i] >= 1.0f)
+            {
+                autoClickersLastTime[i] = Time.time;
+                EnemyManager.instance.curEnemy.Damage();
+            }
+        }
     }
 }
