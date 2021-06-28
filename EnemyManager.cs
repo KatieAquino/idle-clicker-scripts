@@ -28,5 +28,6 @@ public class EnemyManager : MonoBehaviour
         // Destroys the current enemy and creates a new enemy.
         Destroy(enemy);
         CreateNewEnemy();
+        GameManager.instance.BackgroundCheck();
     }
 }
