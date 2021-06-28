@@ -22,4 +22,11 @@ public class EnemyManager : MonoBehaviour
 
         curEnemy = obj.GetComponent<Enemy>();
     }
+
+    public void DefeatEnemy(GameObject enemy)
+    {
+        // Destroys the current enemy and creates a new enemy.
+        Destroy(enemy);
+        CreateNewEnemy();
+    }
 }
