@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public int curHp;
     public int maxHp;
     public int goldToGive;
+    public Animation anim;
 
     public void Damage()
     {
@@ -16,6 +17,8 @@ public class Enemy : MonoBehaviour
         curHp--;
         // Update health bar
         healthBarFill.fillAmount = (float)curHp / (float)maxHp;
+        anim.Stop();
+        anim.Play();
 
 
         if(curHp <= 0)
